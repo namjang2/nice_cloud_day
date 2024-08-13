@@ -1,0 +1,30 @@
+name: Ruff
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치로 푸시될 때 실행
+  pull_request:
+    branches:
+      - main  # main 브랜치로 풀 리퀘스트가 생성될 때 실행
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Python 버전 설정
+
+    - name: Install dependencies
+      run: |
+        pip install ruff
+
+    - name: Run Ruff linter
+      run: |
+        ruff check .
