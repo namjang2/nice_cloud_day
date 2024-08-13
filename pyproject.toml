@@ -1,0 +1,27 @@
+[tool.ruff]
+# Select all rules from specific categories
+select = [
+    "F",  # Pyflakes (unused imports, variables, etc.)
+    "E",  # PEP8 error codes (syntax errors)
+    "W",  # PEP8 warning codes
+    "C90",  # Cyclomatic complexity
+    "AIR",  # Airflow-specific rules
+    "ICN",  # Import Conventions
+    "Q",  # Quotes
+]
+
+# Specific individual rules to include
+extend-select = [
+    "I001", "I002",  # Import conventions
+    "PD002", "PD003", "PD004", "PD015", "PD901",  # Pandas-vet rules
+    "N802", "N803", "N806", "N807", "N818", "N999",  # PEP8 Naming conventions
+    "UP032", "UP034",  # Unused/Undefined variable or function
+    "ANN001", "ANN201", "ANN202",  # Type annotation checks
+    "S105", "S110", "S112",  # Security checks (e.g., use of assert statements, eval, etc.)
+    "A001",  # Async best practices
+    "B025",  # Best practices (e.g., mutable default arguments)
+    "PLR2004",  # Public API linting rules
+]
+
+# (Optional) Specify additional configuration or ignored rules
+ignore = ["E501"]
