@@ -103,11 +103,11 @@ dag = DAG(
     catchup=False
 )
 
-update_sanbul_task = PythonOperator(
+update_sanbul_data = PythonOperator(
     task_id="update_sanbul_data",
     python_callable=enrich_and_upload_data,
     provide_context=True,
     dag=dag,
 )
 
-update_sanbul_task
+update_sanbul_data
